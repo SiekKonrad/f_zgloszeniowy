@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja Autokaru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0; /* Kolor tła strony */
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff; /* Kolor tła formularza */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Cień formularza */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            margin-left: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="reservationForm">
+        <label for="firstName">Imię:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Nazwisko:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="date">Data (format rrrr-mm-dd):</label>
+        <input type="date" id="date" name="date" required>
+
+        <label>Czy będziesz trzeźwy:</label>
+        <div class="radio-group">
+            <input type="radio" id="soberYes" name="sober" value="tak" required>
+            <label for="soberYes">Tak</label>
+
+            <input type="radio" id="soberNo" name="sober" value="nie" required>
+            <label for="soberNo">Nie</label>
+        </div>
+
+        <label for="seatPreference">Gdzie chcesz siedzieć:</label>
+        <select id="seatPreference" name="seatPreference" required>
+            <option value="front">Z przodu</option>
+            <option value="middle">Po środku</option>
+            <option value="back">Z tyłu</option>
+        </select>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="agreement" name="agreement" required>
+            <label for="agreement">Zgadzam się na przetwarzanie danych osobowych</label>
+        </div>
+
+        <div>
+            <button type="button" onclick="clearForm()">Wyczyść</button>
+            <button type="submit">Rezerwuj</button>
+        </div>
+    </form>
+
+    <script>
+        function clearForm() {
+            document.getElementById("reservationForm").reset();
+        }
+    </script>
+
+</body>
+</html>
